@@ -58,8 +58,8 @@ const addSurveys = async function (req, res) {
       `<div style="text-align: center;">
       <h1>I'd like to take your feedback!</h1>
       <p>${survey.body}</p>
-      <a href="https://afternoon-taiga-80990.herokuapp.com/api/surveys/${survey._id}/yes">Yes</a>
-      <a href="https://afternoon-taiga-80990.herokuapp.com/api/surveys/${survey._id}/no">No</a>
+      <a href="https://evening-shelf-64382.herokuapp.com/api/surveys/${survey._id}/yes">Yes</a>
+      <a href="https://evening-shelf-64382.herokuapp.com/api/surveys/${survey._id}/no">No</a>
     </div>`
     );
     const mail = new helper.Mail(fromEmail, subject, toEmail, content);
