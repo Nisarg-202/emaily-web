@@ -4,49 +4,49 @@ module.exports = function (app) {
   app.use(
     '/auth/google',
     createProxyMiddleware({
-      target: 'http://localhost:5000',
+      target: 'https://evening-shelf-64382.herokuapp.com',
     })
   );
   app.use(
     '/logout',
     createProxyMiddleware({
-      target: 'http://localhost:5000',
+      target: 'https://evening-shelf-64382.herokuapp.com',
     })
   );
   app.use(
     '/currentuser',
     createProxyMiddleware({
-      target: 'http://localhost:5000',
+      target: 'https://evening-shelf-64382.herokuapp.com',
     })
   );
   app.use(
     '/payment',
     createProxyMiddleware({
-      target: 'http://localhost:5000',
+      target: 'https://evening-shelf-64382.herokuapp.com',
     })
   );
   app.use(
     '/api/surveys',
     createProxyMiddleware({
-      target: 'http://localhost:5000',
+      target: 'https://evening-shelf-64382.herokuapp.com',
     })
   );
   app.use(
     '/api/success',
     createProxyMiddleware({
-      target: 'http://localhost:5000',
+      target: 'https://evening-shelf-64382.herokuapp.com',
     })
   );
   app.use(
     '/api/delete',
     createProxyMiddleware({
-      target: 'http://localhost:5000',
+      target: 'https://evening-shelf-64382.herokuapp.com',
     })
   );
   app.use(
     '/save/surveys',
     createProxyMiddleware({
-      target: 'http://localhost:5000',
+      target: 'https://evening-shelf-64382.herokuapp.com',
     })
   );
 };
