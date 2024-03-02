@@ -1,52 +1,52 @@
-const {createProxyMiddleware} = require('http-proxy-middleware');
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = function (app) {
   app.use(
-    '/auth/google',
+    "/auth/google",
     createProxyMiddleware({
-      target: 'https://evening-shelf-64382.herokuapp.com',
+      target: process.env.REACT_APP_SERVER_URL,
     })
   );
   app.use(
-    '/logout',
+    "/logout",
     createProxyMiddleware({
-      target: 'https://evening-shelf-64382.herokuapp.com',
+      target: process.env.REACT_APP_SERVER_URL,
     })
   );
   app.use(
-    '/currentuser',
+    "/currentuser",
     createProxyMiddleware({
-      target: 'https://evening-shelf-64382.herokuapp.com',
+      target: process.env.REACT_APP_SERVER_URL,
     })
   );
   app.use(
-    '/payment',
+    "/payment",
     createProxyMiddleware({
-      target: 'https://evening-shelf-64382.herokuapp.com',
+      target: process.env.REACT_APP_SERVER_URL,
     })
   );
   app.use(
-    '/api/surveys',
+    "/api/surveys",
     createProxyMiddleware({
-      target: 'https://evening-shelf-64382.herokuapp.com',
+      target: process.env.REACT_APP_SERVER_URL,
     })
   );
   app.use(
-    '/api/success',
+    "/api/success",
     createProxyMiddleware({
-      target: 'https://evening-shelf-64382.herokuapp.com',
+      target: process.env.REACT_APP_SERVER_URL,
     })
   );
   app.use(
-    '/api/delete',
+    "/api/delete",
     createProxyMiddleware({
-      target: 'https://evening-shelf-64382.herokuapp.com',
+      target: process.env.REACT_APP_SERVER_URL,
     })
   );
   app.use(
-    '/save/surveys',
+    "/save/surveys",
     createProxyMiddleware({
-      target: 'https://evening-shelf-64382.herokuapp.com',
+      target: process.env.REACT_APP_SERVER_URL,
     })
   );
 };

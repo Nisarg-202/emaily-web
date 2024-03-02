@@ -1,10 +1,10 @@
 module.exports = {
-  stripeSecretKey: 'sk_test_Zol9ONQwyUilN6KWzf5eSSaZ00toiZA7no',
+  stripeSecretKey: "sk_test_4eC39HqLyjWDarjtT1zdp7dc",
   clientId:
-    '509806167363-inh047l9sd5lu366itm8ljlb0es9fteb.apps.googleusercontent.com',
-  clientSecret: '2BsR1YJ_ftGDi8zd0Dq7xNo2',
+    "84764918506-vd5msipk84dtmquo93fmcliemdmachej.apps.googleusercontent.com",
+  clientSecret: "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",
   sendGridKey:
-    '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',
-  cookieSecret: 'ndinasdnanndnnifwnifnnewnoifniwnocncnowco',
-  mongoPassword: 'Nkp@Nkp23',
+    "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",
+  cookieSecret: "ndinasdnanndnnifwnifnnewnoifniwnocncnowco",
+  mongoPassword: "nisarg",
 };
