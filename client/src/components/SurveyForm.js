@@ -1,21 +1,22 @@
-import React, {useEffect, useState} from 'react';
-import {reduxForm, Field} from 'redux-form';
-import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
-import SurveyField from './SurveyField';
-import {savedSurvey, getSavedSurvey} from '../actions';
+import React, { useEffect, useState } from "react";
+import { reduxForm, Field } from "redux-form";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import SurveyField from "./SurveyField";
+import { savedSurvey, getSavedSurvey } from "../actions";
 
-const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const re =
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const SURVEYFIELDS = [
-  {label: 'Title', name: 'title', formError: 'Please enter a valid title'},
+  { label: "Title", name: "title", formError: "Please enter a valid title" },
   {
-    label: 'Subject',
-    name: 'subject',
-    formError: 'Please enter a valid subject',
+    label: "Subject",
+    name: "subject",
+    formError: "Please enter a valid subject",
   },
-  {label: 'Body', name: 'body', formError: 'Please enter a valid body'},
-  {label: 'Emails', name: 'emails', formError: 'Please enter a valid emails'},
+  { label: "Body", name: "body", formError: "Please enter a valid body" },
+  { label: "Emails", name: "emails", formError: "Please enter a valid emails" },
 ];
 
 function SurveyForm(props) {
@@ -25,7 +26,7 @@ function SurveyForm(props) {
     function () {
       if (condition) {
         SURVEYFIELDS.forEach(function (item) {
-          props.change(item['name'], props.surveySave[item.name]);
+          props.change(item["name"], props.surveySave[item.name]);
         });
       }
     },
@@ -55,7 +56,7 @@ function SurveyForm(props) {
   return (
     <div className="container">
       <form onSubmit={props.handleSubmit(props.onHandleChange)}>
-        {SURVEYFIELDS.map(function ({label, name}) {
+        {SURVEYFIELDS.map(function ({ label, name }) {
           return (
             <Field
               key={name}
@@ -70,7 +71,7 @@ function SurveyForm(props) {
           <button
             className="btn btn-danger"
             onClick={function () {
-              props.history.push('/dashboard');
+              props.history.push("/dashboard");
             }}
           >
             Cancel
@@ -95,9 +96,9 @@ function SurveyForm(props) {
 function validate(values) {
   const errors = {};
 
-  if (values['emails']) {
+  if (values["emails"]) {
     const wrongEmails = values.emails
-      .split(',')
+      .split(",")
       .map(function (email) {
         return email.trim();
       })
@@ -105,11 +106,11 @@ function validate(values) {
         return re.test(item.toLowerCase()) === false;
       });
     if (wrongEmails.length > 0) {
-      errors['emails'] = `The Wrong Email is : ${wrongEmails.join(', ')}`;
+      errors["emails"] = `The Wrong Email is : ${wrongEmails.join(", ")}`;
     }
   }
 
-  SURVEYFIELDS.forEach(function ({name, formError}) {
+  SURVEYFIELDS.forEach(function ({ name, formError }) {
     if (!values[name]) {
       errors[name] = formError;
     }
@@ -119,15 +120,15 @@ function validate(values) {
 }
 
 function mapStateToProps(state) {
-  return {surveySave: state.saved};
+  return { surveySave: state.saved };
 }
 
 export default reduxForm({
   validate,
-  form: 'surveyForm',
+  form: "surveyForm",
   destroyOnUnmount: false,
 })(
-  connect(mapStateToProps, {savedSurvey, getSavedSurvey})(
+  connect(mapStateToProps, { savedSurvey, getSavedSurvey })(
     withRouter(SurveyForm)
   )
 );
